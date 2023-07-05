@@ -1,0 +1,44 @@
+<h1 id="game-of-thrones">Game of Thrones</h1>
+<p>Aujourd'hui nous allons réaliser une petite encyclopédie à propos d'un petit bouquin méconnu, mais qui monte. Il parait qu'une série télé est en préparation !</p>
+<p>L'exercice se compose de 4 pages : </p>
+<ul>
+<li>La <a href="docs/screens/home.png">page d'accueil</a> montrant l'ensemble des personnages.</li>
+<li>La <a href="docs/screens/character.png">page personnage</a> montrant les informations d'un personnage.</li>
+<li>La <a href="docs/screens/houses.png">page des maisons</a> listant les maisons (familles) des personnages.</li>
+<li>La <a href="doc/../docs/screens/house.png">page d'une maison</a> montrant les personnages appartenant à une maison donnée.</li>
+</ul>
+<p>Pour réaliser ces pages, vous aurez besoin des outils suivants : </p>
+<ul>
+<li>PHP &amp; MySQL</li>
+<li>HTML &amp; CSS</li>
+<li>Lumen &amp; Eloquent</li>
+</ul>
+<p>Un export SQL est fourni dans <code>docs/got.sql</code>, il faudra créer une BDD et importer le fichier. Cette base contient déjà toutes les informations, pas besoin de la modifier.</p>
+<h2 id="instructions">Instructions</h2>
+<h3 id="étape-1--créer-la-page-daccueil">Étape 1 : Créer la page d'accueil</h3>
+<p>Il faudra pour cela créer une <em>route</em> adéquate et récupérer <em>tous les personnages</em>. Le fond coloré de chaque personnage dépend de sa maison. On ne va pas le prendre en compte tout de suite.</p>
+<h3 id="étape-2--créer-la-page-dun-personnage">Étape 2 : Créer la page d'un personnage</h3>
+<p>Pour cette étape, il faudra créer une route récupérant un <em>identifiant</em> du personnage pour charger ses informations. <br />
+Dans un premier temps, on ne va récupérer que le rang du personnage. Chaque personnage ne peut en avoir qu'un. Il faut donc modifier le <em>model</em> en conséquence.</p>
+<p><strong>Bonus :</strong> On peut déjà récupérer les informations concernant les parents du personnage. C'est aussi une relation du même type que le rang.</p>
+<h3 id="étape-3--lister-les-maisons">Étape 3 : Lister les maisons</h3>
+<p>Nouvelle route permettant de récupérer <em>toutes les maisons</em>. On va les afficher en utilisant un des attributs du <em>model</em> pour modifier sa couleur de fond. Chaque image de maison doit mener vers la page de la maison en question au clic.</p>
+<h3 id="étape-4--lister-les-personnages-dune-maison">Étape 4 : Lister les personnages d'une maison</h3>
+<p>Dans cette nouvelle page, on va lister tous les personnages <strong>appartenant</strong> à cette maison. Il faut donc pouvoir identifier la maison en question et faire le lien avec les personnes. Vous pouvez observer les tables de la BDD pour ça ! </p>
+<p><strong>Bonus :</strong> Les personnages de cette page se présentent de la même façon que la homepage. Il y a peut-être un moyen de n'écrire qu'un template pour gérer les "listes de personnages" partout sur le site.</p>
+<h3 id="étape-5--finitions">Étape 5 : Finitions</h3>
+<p>Maintenant qu'on a établi la relation entre personnage et maison, on va pouvoir l'utiliser : </p>
+<ul>
+<li>On peut mettre à jour la couleur de fond des personnages sur les listes ou sur la page biographie.</li>
+<li>On peut faire la liste des maisons d'un personnage dans sa biographie.</li>
+</ul>
+<h2 id="par-où-commencer-">Par où commencer ?</h2>
+<p>Voilà quelques pistes pour vous aider : </p>
+<ul>
+<li>Commencez par installer les dépendances composer (<em>Lumen</em> faisant partie des dépendances)</li>
+<li>Configurez <em>Lumen</em> (<code>.env</code>)</li>
+<li>Il faut penser à coder les <em>Models</em> (cette fois, la base de données ne suit pas les conventions de nommage de <em>Lumen</em>, il faudra donc personnaliser les <em>Models</em>)</li>
+<li>Un personnage peut appartenir à <strong>plusieurs</strong> maisons et une maison possède potentiellement  <strong>plusieurs</strong> personnages</li>
+<li>Si vous voulez vous concentrer sur PHP et Lumen, HTML et CSS sont déjà fournis dans le dossier <code>docs/integration</code></li>
+<li>Les images sont déjà prêtes  dans le dossier <code>public/assets/img</code></li>
+</ul>
